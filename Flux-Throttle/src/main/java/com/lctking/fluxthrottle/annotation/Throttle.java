@@ -1,5 +1,6 @@
 package com.lctking.fluxthrottle.annotation;
 
+import com.lctking.fluxthrottle.constant.CacheTypeEnum;
 import com.lctking.fluxthrottle.exception.ThrottleException;
 
 import java.lang.annotation.*;
@@ -10,6 +11,8 @@ import java.util.concurrent.TimeUnit;
 @Documented
 public @interface Throttle {
     String message() default "限流中";
+
+    CacheTypeEnum cacheType() default CacheTypeEnum.REDIS;
 
     String spEL() default "";
 
