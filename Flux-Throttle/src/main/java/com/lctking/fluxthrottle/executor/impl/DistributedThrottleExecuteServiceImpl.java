@@ -12,7 +12,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 
 @RequiredArgsConstructor
-public class ThrottleExecuteServiceImpl implements ThrottleExecuteService {
+public class DistributedThrottleExecuteServiceImpl implements ThrottleExecuteService {
     private final CacheService cacheService;
     @Override
     public void proceed(ProceedingJoinPoint joinPoint, Throttle throttle) {
