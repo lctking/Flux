@@ -1,6 +1,6 @@
 package com.lctking.fluxthrottle.cache.impl;
 
-import com.lctking.fluxthrottle.cache.service.DistributeCacheService;
+import com.lctking.fluxthrottle.cache.service.DistributedCacheService;
 import com.lctking.fluxthrottle.constant.ThrottleResultEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
@@ -9,11 +9,10 @@ import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.scripting.support.ResourceScriptSource;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
-public class DistributeCacheServiceImpl implements DistributeCacheService {
+public class DistributedCacheServiceImpl implements DistributedCacheService {
     private final StringRedisTemplate stringRedisTemplate;
 
     private static final String LUA_SCRIPT_RATE_LIMIT_IF_AVAILABLE_PATH = "lua/rate_limit_set_if_available.lua";

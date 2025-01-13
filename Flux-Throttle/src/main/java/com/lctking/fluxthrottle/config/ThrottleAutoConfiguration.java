@@ -1,7 +1,7 @@
 package com.lctking.fluxthrottle.config;
 
 import com.lctking.fluxthrottle.aspect.ThrottleAspect;
-import com.lctking.fluxthrottle.cache.impl.DistributeCacheServiceImpl;
+import com.lctking.fluxthrottle.cache.impl.DistributedCacheServiceImpl;
 import com.lctking.fluxthrottle.executor.impl.DistributedThrottleExecuteServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -14,12 +14,12 @@ public class ThrottleAutoConfiguration {
     private final StringRedisTemplate stringRedisTemplate;
 
     @Bean
-    public DistributeCacheServiceImpl distributeCacheService(){
-        return new DistributeCacheServiceImpl(stringRedisTemplate);
+    public DistributedCacheServiceImpl distributeCacheService(){
+        return new DistributedCacheServiceImpl(stringRedisTemplate);
     }
 
     @Bean
-    public DistributedThrottleExecuteServiceImpl throttleExecuteService(DistributeCacheServiceImpl distributeCacheService){
+    public DistributedThrottleExecuteServiceImpl throttleExecuteService(DistributedCacheServiceImpl distributeCacheService){
         return new DistributedThrottleExecuteServiceImpl(distributeCacheService);
     }
 
