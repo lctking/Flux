@@ -14,7 +14,7 @@ public class ThrottleAspect {
     public Object handle(ProceedingJoinPoint joinPoint){
         Throttle throttle = IdempotentGetter(joinPoint);
         Object result = null;
-        ThrottleExecuteService instance = ThrottleExecuteFactory.getInstance();
+        ThrottleExecuteService instance = ThrottleExecuteFactory.getInstance(throttle.cacheType());
 
         try{
             instance.proceed(joinPoint,throttle);
