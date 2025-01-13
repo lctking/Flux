@@ -2,7 +2,7 @@ package com.lctking.fluxthrottle.config;
 
 import com.lctking.fluxthrottle.aspect.ThrottleAspect;
 import com.lctking.fluxthrottle.cache.impl.DistributeCacheServiceImpl;
-import com.lctking.fluxthrottle.executor.impl.ThrottleExecuteServiceImpl;
+import com.lctking.fluxthrottle.executor.impl.DistributedThrottleExecuteServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +19,8 @@ public class ThrottleAutoConfiguration {
     }
 
     @Bean
-    public ThrottleExecuteServiceImpl throttleExecuteService(DistributeCacheServiceImpl distributeCacheService){
-        return new ThrottleExecuteServiceImpl(distributeCacheService);
+    public DistributedThrottleExecuteServiceImpl throttleExecuteService(DistributeCacheServiceImpl distributeCacheService){
+        return new DistributedThrottleExecuteServiceImpl(distributeCacheService);
     }
 
     @Bean
