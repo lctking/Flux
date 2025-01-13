@@ -11,8 +11,6 @@ import java.util.concurrent.TimeUnit;
 public @interface Throttle {
     String message() default "限流中";
 
-    TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
-
     String spEL() default "";
 
     /**
@@ -34,6 +32,8 @@ public @interface Throttle {
      * 窗口大小（毫秒）
      */
     long windowSize() default 1000L;
+
+    TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
 
     Class<? extends Throwable> exceptionClass() default ThrottleException.class;
 }
