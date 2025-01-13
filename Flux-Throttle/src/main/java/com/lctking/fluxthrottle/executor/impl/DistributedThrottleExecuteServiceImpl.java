@@ -3,7 +3,7 @@ package com.lctking.fluxthrottle.executor.impl;
 import com.lctking.fluxthrottle.annotation.Throttle;
 import com.lctking.fluxthrottle.cache.service.CacheService;
 import com.lctking.fluxthrottle.executor.ThrottleArgsWrapper;
-import com.lctking.fluxthrottle.executor.service.ThrottleExecuteService;
+import com.lctking.fluxthrottle.executor.service.DistributedThrottleExecuteService;
 import com.lctking.fluxthrottle.utils.ExceptionThrower;
 import com.lctking.fluxthrottle.utils.SpELParser;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 
 @RequiredArgsConstructor
-public class DistributedThrottleExecuteServiceImpl implements ThrottleExecuteService {
+public class DistributedThrottleExecuteServiceImpl implements DistributedThrottleExecuteService {
     private final CacheService cacheService;
     @Override
     public void proceed(ProceedingJoinPoint joinPoint, Throttle throttle) {
