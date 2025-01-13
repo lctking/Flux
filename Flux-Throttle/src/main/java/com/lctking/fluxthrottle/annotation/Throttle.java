@@ -38,5 +38,7 @@ public @interface Throttle {
 
     TimeUnit timeUnit() default TimeUnit.MILLISECONDS;
 
+    String rejectMethod() default "";
+
     Class<? extends Throwable> exceptionClass() default ThrottleException.class;
 }
